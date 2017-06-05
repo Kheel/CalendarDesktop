@@ -1,9 +1,10 @@
-package pl.se.calendar;
+package en.desktop.calendar;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -17,21 +18,23 @@ import java.util.ResourceBundle;
 public class Main extends Application {
 
     public static final String FXML_BORDER_PANE_MAIN = "/fxml/BorderPaneMain.fxml";
+    public static final String ICONS_CALENDAR_DESKTOP_ICON_PNG = "/icons/calendarDesktopIcon.png";
 
-    public static void main (String[] args)
-    {
-    launch(args);
+    public static void main(String[] args) {
+        launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception
-    {
+    public void start(Stage primaryStage) throws Exception { //Stage->Scene->Layout(ex.BorderPane)->Controls(ex.Text, Button, Checkbox)
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(FXML_BORDER_PANE_MAIN)); // create FXMLLoader, get fxml file from folder resources
         BorderPane borderPane = loader.load();
         Scene scene = new Scene(borderPane);
 
+        Locale.setDefault(new Locale("en")); // set default language for bundles (english), other and for now the second working language is "pl"
+
         primaryStage.setScene(scene);
-        primaryStage.setTitle("CalendarD");
+        primaryStage.setTitle("CalendarDesktop");
+        primaryStage.getIcons().add(new Image(ICONS_CALENDAR_DESKTOP_ICON_PNG)); // adding icon to app bar near title
         primaryStage.show();
 
         System.out.println("Hello world !");
