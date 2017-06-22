@@ -1,6 +1,7 @@
 package en.desktop.calendar.controllers;
 
 import en.desktop.calendar.utils.DialogUtils;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
@@ -31,4 +32,14 @@ public class MainController {
             System.exit(0); // terminate thread main and end program
         }
     }
+
+    public void setCaspian() {
+        Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
+    }
+
+    public void setModena() {
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+    }
+
+
 }

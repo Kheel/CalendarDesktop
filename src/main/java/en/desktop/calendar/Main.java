@@ -26,11 +26,15 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception { //Stage->Scene->Layout(ex.BorderPane)->Controls(ex.Text, Button, Checkbox)
 
+        Locale.setDefault(new Locale("en")); // set default language for bundles (english), other and for now the second working language is "pl"
+        ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
+
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource(FXML_BORDER_PANE_MAIN)); // create FXMLLoader, get fxml file from folder resources
+        loader.setResources(bundle);
         BorderPane borderPane = loader.load();
         Scene scene = new Scene(borderPane);
 
-        Locale.setDefault(new Locale("en")); // set default language for bundles (english), other and for now the second working language is "pl"
+
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("CalendarDesktop");
